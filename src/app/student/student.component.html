@@ -1,0 +1,50 @@
+<button (click)="toggleForm()">Create Student</button>
+
+
+<div *ngIf="showForm">
+  <form [formGroup]="studentInfos">
+    <label for="firstName">First Name:</label>
+    <input id="firstName" formControlName="firstName" type="text"><br>
+
+    <label for="lastName">Last Name:</label>
+    <input id="lastName" formControlName="lastName" type="text"><br>
+
+    <label for="email">Email:</label>
+    <input id="email" formControlName="email" type="email"><br>
+
+    <label for="schoolId">School ID:</label>
+    <input id="schoolId" formControlName="schoolId" type="number"><br>
+
+    <button type="button" (click)="createStudent()">Submit</button>
+  </form>
+</div>
+
+<button (click)="loadStudents()" > Get The Students List   </button>
+<h2 *ngIf="studentsList" >Your students List:</h2>
+<ul>
+  <li *ngFor="let student of studentsList">
+    First Name: {{ student.firstName }} <br>
+    Last Name: {{ student.lastName }} <br>
+    Email: {{ student.email }} <br>  </li>
+</ul>
+<label for="studentName"> Enter Your Desired Student Name Here : </label><br>
+<input type="text" placeholder="enter student name " [(ngModel)]="studentName"><br>
+
+<button (click)="getStudentByName(studentName)" > Search For a Student By His Name</button><br>
+
+<h3 *ngIf="studentName">
+  <ul>
+    <li *ngFor="let student of studentsByName">
+      First Name: {{ student.firstName }} <br>
+      Last Name: {{ student.lastName }} <br>
+      Email: {{ student.email }} <br>
+    </li>
+  </ul><br>
+</h3>
+<br>
+
+<label for=" delete"> Enter a Student ID </label><br>
+
+<input type="number" placeholder="student_Id" [(ngModel)] = "studentId"><br>
+
+<button (click)="deleteStudentById(studentId)"> Delete a  Student By His Id</button>
