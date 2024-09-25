@@ -1,0 +1,120 @@
+
+body {
+  font-family: 'Segoe UI', sans-serif;
+  background-color: #eef1f5;
+  color: #34495e;
+  margin: 0;
+  padding: 0;
+}
+
+h2, h3 {
+  color: #2c3e50;
+  text-align: center;
+}
+
+form {
+  background-color: #fff;
+  padding: 20px;
+  margin: 20px 0;
+  border-radius: 8px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+}
+
+label {
+  font-size: 1.1em;
+  color: #34495e;
+  margin-top: 10px;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="number"] {
+  width: calc(100% - 22px);
+  padding: 10px;
+  margin-bottom: 15px;
+  border: 2px solid #3498db;
+  border-radius: 5px;
+  transition: all 0.3s ease;
+  font-size: 1em;
+}
+
+input[type="text"]:focus,
+input[type="email"]:focus,
+input[type="number"]:focus {
+  outline: none;
+  border-color: #2980b9;
+  box-shadow: 0px 0px 5px rgba(52, 152, 219, 0.5);
+}
+
+button {
+  padding: 10px 20px;
+  background-color: #1abc9c;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  font-size: 1.1em;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+button:hover {
+  background-color: #16a085;
+  transform: scale(1.05);
+}
+
+button:active {
+  transform: scale(1.02);
+}
+
+
+ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 20px 0;
+}
+
+li {
+  background-color: #ecf0f1;
+  padding: 15px;
+  margin: 10px 0;
+  border-radius: 5px;
+  box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.1);
+}
+
+label[for="delete"],
+label[for="studentName"] {
+  font-size: 1.2em;
+  margin-top: 20px;
+  display: block;
+}
+
+input[placeholder="student_Id"] {
+  width: 100px;
+}
+
+input[placeholder="enter student name "] {
+  width: 300px;
+}
+
+
+@media (max-width: 768px) {
+  input[type="text"],
+  input[type="email"],
+  input[type="number"],
+  input[placeholder="enter student name "] {
+      width: 100%;
+  }
+
+  button, ul li {
+      width: 100%;
+  }
+
+  h2, h3 {
+      font-size: 1.5em;
+  }
+
+  label[for="delete"],
+  label[for="studentName"] {
+      font-size: 1.1em;
+  }
+}
