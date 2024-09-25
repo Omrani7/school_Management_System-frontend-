@@ -1,1 +1,23 @@
-<p>school works!</p>
+<div>
+  <button (click)="toggleForm()"> Create New School</button>
+  <form *ngIf="viewForm" [formGroup]="schoolInfos">
+    <label for=" school_name">Enter The School Name:</label>
+    <input type="text" formControlName = "name">
+    <label for="score">Enter The Score:</label>
+    <input type="text" name="score" formControlName = "score">
+    <button  (click)="createSchool()"> submit</button>
+  </form>
+</div>
+<br>
+<br>
+<button (click)="getSchool()"> Get The School List</button>
+<h4 *ngIf="schoolList">
+  <ul *ngFor="let School of schoolList">
+    <li>name : {{School.name}}</li>
+    <li> score : {{School.score}}</li>
+  </ul>
+</h4>
+<br><br>
+<label for="schoolid"> Enter The Desired School Id:</label><br>
+<input type="number" [(ngModel)] = "schoolId"><br>
+<button (click)="deleteSchoolById(schoolId)"> Delete School By Id</button>

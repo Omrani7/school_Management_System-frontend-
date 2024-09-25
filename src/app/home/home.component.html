@@ -2,8 +2,8 @@
 <h4> Please Enter Your Role Here:</h4>
 <input type="text" placeholder="enter your role " [(ngModel)]="role">
 <button type="submit" (click)="printRole()"> submit</button> <br>
-<a *ngIf="role == 'student'" [routerLink]="['/students']"  > Please Follow This Link </a> <br>
-<a *ngIf="role == 'admin'" [routerLink]="['/school']"  > Please Follow This Link </a>
+<a *ngIf="role == 'admin'" [routerLink]="['/students']"  > Please Follow This Link To Manage Students </a> <br>
+<a *ngIf="role == 'admin'" [routerLink]="['/school']"  > Please Follow This Link To Manage Schools </a>
 
 
 
