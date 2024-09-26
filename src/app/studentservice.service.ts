@@ -21,12 +21,9 @@ deleteStudentById(id : Number):Observable<void> {
  return this.http.delete<void>(`${this.apiUrl}/${id}`)
 
 }
-createStudent(firstName:String ,lastName:String,email:String,schoolId :number):Observable<Student>{
-  const studentData = {
-    firstName: firstName,
-    lastName: lastName,
-    email: email,
-    schoolId: schoolId}
+createStudent(studentData:any):Observable<Student>{
+
+
 return this.http.post<Student>(this.apiUrl,studentData);
 
 

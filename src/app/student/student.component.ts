@@ -54,18 +54,31 @@ deleteStudentById(id: number): void {
 
 
 studentInfos = new FormGroup({
-  firstName : new FormControl(''),
-  lastName: new FormControl(''),
-email: new FormControl(''),
-schoolId: new FormControl('')}
-)
+  firstname: new FormControl(''),
+  lastname: new FormControl(''),
+  schoolId: new FormControl(''),
+  userInfos: new FormGroup({
+    username: new FormControl(''),
+    email: new FormControl(''),
+    age: new FormControl(''),
+    role: new FormControl('')
+  })
+});
+
 createStudent() {
-  this.studentService.createStudent(
-    this.studentInfos.value.firstName ?? '',
-    this.studentInfos.value.lastName ?? '',
-    this.studentInfos.value.email ?? '',
-    +(this.studentInfos.value.schoolId ?? 0)
-  ).subscribe({
+  const studentData = {
+    firstname: this.studentInfos.value.firstname ?? '',
+    lastname: this.studentInfos.value.lastname ?? '',
+    schoolId: this.studentInfos.value.schoolId ?? 0,
+    userdto: {
+      username: this.studentInfos.value.userInfos?.username ?? '',
+      email: this.studentInfos.value.userInfos?.email ?? '',
+      age: this.studentInfos.value.userInfos?.age ?? 0,
+      role: this.studentInfos.value.userInfos?.role ?? ''
+    }
+  };
+
+  this.studentService.createStudent(studentData).subscribe({
     next: () => {
       console.log("Student has been successfully created");
     },
@@ -77,5 +90,6 @@ createStudent() {
     }
   });
 }
+
 
 }

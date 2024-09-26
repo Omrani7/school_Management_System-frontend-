@@ -1,23 +1,39 @@
 <button (click)="toggleForm()">Create Student</button>
 
 
-<div *ngIf="showForm">
+
+
+
+<div *ngIf="showForm">    <!--</div>*-->
   <form [formGroup]="studentInfos">
-    <label for="firstName">First Name:</label>
-    <input id="firstName" formControlName="firstName" type="text"><br>
+    <label for="firstname">First Name:</label>
+    <input id="firstname" formControlName="firstname" type="text"><br>
 
-    <label for="lastName">Last Name:</label>
-    <input id="lastName" formControlName="lastName" type="text"><br>
-
-    <label for="email">Email:</label>
-    <input id="email" formControlName="email" type="email"><br>
+    <label for="lastname">Last Name:</label>
+    <input id="lastname" formControlName="lastname" type="text"><br>
 
     <label for="schoolId">School ID:</label>
     <input id="schoolId" formControlName="schoolId" type="number"><br>
 
+    <div formGroupName="userInfos">
+      <label for="username">Username:</label>
+      <input id="username" formControlName="username" type="text"><br>
+
+      <label for="email">Email:</label>
+      <input id="email" formControlName="email" type="email"><br>
+
+      <label for="age">Age:</label>
+      <input id="age" formControlName="age" type="number"><br>
+
+      <label for="role">Role:</label>
+      <input id="role" formControlName="role" type="text"><br>
+    </div>
+
     <button type="button" (click)="createStudent()">Submit</button>
   </form>
 </div>
+
+
 
 <button (click)="loadStudents()" > Get The Students List   </button>
 <h2 *ngIf="studentsList" >Your students List:</h2>
