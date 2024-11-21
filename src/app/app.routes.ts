@@ -3,6 +3,7 @@ import { StudentComponent } from './student/student.component';
 import { HomeComponent } from './home/home.component';
 import { SchoolComponent } from './school/school.component';
 import { ProfileComponent } from './profile/profile.component';
+import { TeacherComponent } from './teacher/teacher.component';
 
 export const routes: Routes = [
   {
@@ -16,5 +17,9 @@ export const routes: Routes = [
   },
   {
     path:"profile" ,component : ProfileComponent
+
+  },
+  {
+    path:"teacher" ,component : TeacherComponent
   }
 ];

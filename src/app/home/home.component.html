@@ -4,6 +4,7 @@
 <button type="submit" (click)="printRole()"> submit</button> <br>
 <a *ngIf="role == 'admin'" [routerLink]="['/students']"  > Please Follow This Link To Manage Students </a> <br>
 <a *ngIf="role == 'admin'" [routerLink]="['/school']"  > Please Follow This Link To Manage Schools </a>
+<a *ngIf="role == 'teacher'" [routerLink]="['/teacher']"  > Please Follow This Link To Manage teachers </a>
 
 
 

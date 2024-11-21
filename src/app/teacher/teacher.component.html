@@ -1,0 +1,58 @@
+<div class="teacher-container">
+  <h2>Teacher Management</h2>
+
+  <!-- Button to toggle the form for creating or editing a teacher -->
+  <button (click)="toggleForm()">
+    {{ showForm ? 'Hide Form' : 'Add New Teacher' }}
+  </button>
+
+  <!-- Form to create or update teacher details -->
+  <form *ngIf="showForm" [formGroup]="teacherInfos" (ngSubmit)="onSubmit()">
+    <h3>{{ teacherId ? 'Edit Teacher' : 'Create New Teacher' }}</h3>
+
+    <!-- Form fields for user information -->
+    <div formGroupName="user">
+      <label for="username">Username:</label>
+      <input id="username" formControlName="username" type="text" />
+
+      <label for="email">Email:</label>
+      <input id="email" formControlName="email" type="email" />
+
+      <label for="age">Age:</label>
+      <input id="age" formControlName="age" type="number" />
+
+      <label for="role">Role:</label>
+      <select id="role" formControlName="role">
+        <option value="TEACHER">Teacher</option>
+        <option value="ADMIN">Admin</option>
+      </select>
+    </div>
+
+    <!-- Additional fields for teacher-specific information -->
+    <label for="subjectSpecialization">Subject Specialization:</label>
+    <input id="subjectSpecialization" formControlName="subjectSpecialization" type="text" />
+
+    <label for="contactInformation">Contact Information:</label>
+    <input id="contactInformation" formControlName="contactInformation" type="text" />
+
+    <button type="submit">{{ teacherId ? 'Update Teacher' : 'Add Teacher' }}</button>
+    <button type="button" (click)="resetForm()">Cancel</button>
+  </form>
+
+  <!-- List of teachers -->
+  <h3>Teachers List</h3>
+  <ul *ngIf="teachersList && teachersList.length > 0">
+    <li *ngFor="let teacher of teachersList">
+      <div>
+        <strong>{{ teacher.userName }}</strong> - {{ teacher.email }}
+        <p>Specialization: {{ teacher.subjectSpecialization }}</p>
+        <p>Contact: {{ teacher.contactInformation }}</p>
+      </div>
+
+      <!-- Edit and Delete buttons for each teacher in the list -->
+      <button (click)="getTeacherById(teacher.id)">Edit</button>
+      <button (click)="deleteTeacherById(teacher.id)">Delete</button>
+    </li>
+  </ul>
+  <p *ngIf="!teachersList || teachersList.length === 0">No teachers available.</p>
+</div>
